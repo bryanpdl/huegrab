@@ -18,7 +18,7 @@
     "color-namer": "^1.4.0",
     "color-thief-browser": "^2.0.2",
     "lucide-react": "^0.439.0",
-    "next": "14.2.8",
+    "next": "^14.2.8",
     "next-themes": "^0.3.0",
     "quantize": "^1.0.2",
     "react": "^18",

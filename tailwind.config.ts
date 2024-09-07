@@ -66,7 +66,7 @@ const config: Config = {
   			},
   		},
   		fontFamily: {
-  			sans: ['SUSE', 'sans-serif'],
+  			sans: ['var(--font-open-sans)', 'sans-serif'],
   		}
   	}
   },

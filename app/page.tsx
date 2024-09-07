@@ -4,13 +4,14 @@ import { useState, useEffect, useRef } from 'react'
 import { useTheme } from 'next-themes'
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { TooltipProvider } from "@/components/ui/tooltip"
 import { Card, CardContent } from "@/components/ui/card"
 import { Switch } from "@/components/ui/switch"
 import { Slider } from "@/components/ui/slider"
 import { Moon, Sun, Upload, Download, Lock, Unlock, Copy, RefreshCw } from "lucide-react"
 import quantize from 'quantize'
 import namer from 'color-namer'
+import Image from 'next/image'
 
 function rgbToHex(r: number, g: number, b: number): string {
   return '#' + [r, g, b].map(x => {
@@ -51,7 +52,7 @@ export default function Home() {
   }
 
   const extractColors = async (imageUrl: string) => {
-    const img = new Image()
+    const img = new window.Image()
     img.crossOrigin = 'Anonymous'
     img.src = imageUrl
     img.onload = () => {
@@ -66,7 +67,7 @@ export default function Home() {
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
       const pixels = imageData.data
       const pixelCount = img.width * img.height
-      const newPixelArray = []
+      const newPixelArray: number[][] = []
 
       for (let i = 0; i < pixelCount; i++) {
         const offset = i * 4
@@ -157,10 +158,11 @@ export default function Home() {
                 </Button>
                 {imageUrl && (
                   <div className="w-full max-w-[1024px] aspect-square relative overflow-hidden rounded-lg">
-                    <img 
+                    <Image 
                       src={imageUrl} 
                       alt="Uploaded image" 
-                      className="absolute inset-0 w-full h-full object-contain"
+                      fill
+                      style={{ objectFit: 'contain' }}
                     />
                   </div>
                 )}
