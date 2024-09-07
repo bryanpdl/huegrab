@@ -131,7 +131,7 @@ export default function Home() {
       <main className="min-h-screen p-8 bg-background text-foreground">
         <div className="max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-4xl font-bold">Color Palette Extractor</h1>
+            <h1 className="text-4xl font-bold">Huegrab</h1>
             <div className="flex items-center space-x-2">
               <Sun className="h-4 w-4" />
               <Switch
